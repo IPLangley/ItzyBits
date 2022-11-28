@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Combat_Event : Event
 {
 
     // Start is called before the first frame update
-    Player_Controller player;
+    PlayerStats player;
+    
+
     void Awake()
     {
-        player = FindObjectOfType<Player_Controller>();
+        player = FindObjectOfType<PlayerStats>();
     }
 
     // Update is called once per frame
@@ -24,6 +27,8 @@ public class Combat_Event : Event
         Debug.Log("The Combat Event Has Started");
         player.Damage(5);
         player.AddMoney(15);
+        SceneManager.LoadScene("Combat");
+        this.gameObject.SetActive(false);
     }
 
 }

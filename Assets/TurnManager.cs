@@ -3,6 +3,7 @@ using UnityEngine;
 
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TurnManager : MonoBehaviour
 {
@@ -46,8 +47,12 @@ public class TurnManager : MonoBehaviour
 
 	float playerCostDifference, enemyCostDifference;
 
+	private GameObject playerCharacter;
+
+
 	private void OnEnable() {
 		actionStateDisplay.text = $"{playerName}'s turn";
+		playerCharacter = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	//Move selection function only usable to the player
@@ -176,6 +181,18 @@ public class TurnManager : MonoBehaviour
 			}
 			
 			enemyUsedPoints = enemyNumber = 0; //Reset the enemy point and number
+
+			if(enemyHealth.value <= 0)
+            {
+				Debug.Log("Player Win");
+				SceneManager.LoadScene("Overworld");
+            }
+			if(playerHealth.value <= 0)
+            {
+				Debug.Log("Enemy Win");
+				SceneManager.LoadScene("Overworld");
+				playerCharacter.SetActive(true);
+            }
 		}
 	}
 }

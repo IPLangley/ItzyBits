@@ -33,4 +33,9 @@ public class Event_Handler : MonoBehaviour
         currentEvent.gameObject.SetActive(false);
         generateEvent();
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Collision");
+    }
 }

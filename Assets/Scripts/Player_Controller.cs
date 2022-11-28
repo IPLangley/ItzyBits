@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,11 +10,10 @@ public class Player_Controller : MonoBehaviour
     Rigidbody2D playerRigidBody;
     float input_x;
     float input_y;
-    public float health;
-    float maxHealth = 10;
+
     public GameObject gameOverUI;
     [SerializeField]
-    public Image healthUI;
+
     //DetectionPoint
     public Transform detectionPoint;
     //Detection radius
@@ -22,8 +21,7 @@ public class Player_Controller : MonoBehaviour
     //Detection layer
     public LayerMask detectionLayer;
     bool gameOver = false;
-    public float money;
-    public Text moneyText;
+    
     public Text interactPrompt;
     public Image interactBackground;
 
@@ -38,8 +36,8 @@ public class Player_Controller : MonoBehaviour
     {
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerSpeed = 10;
-        health = maxHealth;
-        money = 0;
+
+
         interactPrompt.gameObject.SetActive(false);
         interactBackground.gameObject.SetActive(false);
     }
@@ -49,8 +47,6 @@ public class Player_Controller : MonoBehaviour
     {
         movement();
         interact();
-        healthUI.fillAmount = health / maxHealth;
-        moneyText.text = money.ToString();
     }
 
 
@@ -70,13 +66,11 @@ public class Player_Controller : MonoBehaviour
             {
                 eventCheck();
             }
-            interactPrompt.gameObject.SetActive(true);
-            interactBackground.gameObject.SetActive(true);
+
         }
         else if (interactPrompt.gameObject.activeInHierarchy && interactBackground.gameObject.activeInHierarchy)
         {
-            interactPrompt.gameObject.SetActive(false);
-            interactBackground.gameObject.SetActive(false);
+
         }
     }
     bool InteractInput()
@@ -104,27 +98,7 @@ public class Player_Controller : MonoBehaviour
         }
  
     }
-    public void Heal(float amt)
-    {
-        health += amt;
-        if (health > maxHealth) health = maxHealth;
-    }
-
-    public void Damage(float amt)
-    {
-        health -= amt;
-        if (health <= 0)
-        {
-            //Die();
-        }
-    }
-    void Die()
-    {
-        Time.timeScale = 0;
-        gameOverUI.SetActive(true);
-        gameOver = true;
-    }
-
+    
     void eventCheck()
     {
         if (detectEvent())
@@ -133,8 +107,12 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
-    public void AddMoney(float amnt)
+
+
+    void stopPlay()
     {
-        money += amnt;
+        Time.timeScale = 0;
+        gameOverUI.SetActive(true);
+        gameOver = true;
     }
 }

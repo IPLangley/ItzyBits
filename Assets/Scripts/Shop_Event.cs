@@ -5,10 +5,10 @@ using UnityEngine;
 public class Shop_Event : Event
 {
     // Start is called before the first frame update
-    Player_Controller player;
+    PlayerStats player;
     void Awake()
     {
-        player = FindObjectOfType<Player_Controller>();
+        player = FindObjectOfType<PlayerStats>();
     }
 
 

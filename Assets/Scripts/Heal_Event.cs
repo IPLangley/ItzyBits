@@ -6,11 +6,10 @@ public class Heal_Event : Event
 {
 
     float healValue = 5;
-    Player_Controller player;
-    // Start is called before the first frame update
+    PlayerStats player;
     void Awake()
     {
-        player = FindObjectOfType<Player_Controller>();
+        player = FindObjectOfType<PlayerStats>();
     }
 
     // Update is called once per frame
