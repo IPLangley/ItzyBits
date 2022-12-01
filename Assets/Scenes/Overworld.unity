@@ -160,6 +160,39 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2521602046729381724, guid: f4fe53187dcfaec4990c18c1580128be,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dc7f3c3d64b9e7e4d9b6400ab47ecce5,
+        type: 3}
+    - target: {fileID: 2521602046729381724, guid: f4fe53187dcfaec4990c18c1580128be,
+        type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521602046896487594, guid: f4fe53187dcfaec4990c18c1580128be,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dc7f3c3d64b9e7e4d9b6400ab47ecce5,
+        type: 3}
+    - target: {fileID: 2521602046896487594, guid: f4fe53187dcfaec4990c18c1580128be,
+        type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521602047938798389, guid: f4fe53187dcfaec4990c18c1580128be,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dc7f3c3d64b9e7e4d9b6400ab47ecce5,
+        type: 3}
+    - target: {fileID: 2521602047938798389, guid: f4fe53187dcfaec4990c18c1580128be,
+        type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2521602048396962412, guid: f4fe53187dcfaec4990c18c1580128be,
         type: 3}
       propertyPath: m_RootOrder
@@ -222,6 +255,69 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4fe53187dcfaec4990c18c1580128be, type: 3}
+--- !u!1 &79438867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2521602046729381729, guid: f4fe53187dcfaec4990c18c1580128be,
+    type: 3}
+  m_PrefabInstance: {fileID: 79438866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &79438868 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2521602047938798394, guid: f4fe53187dcfaec4990c18c1580128be,
+    type: 3}
+  m_PrefabInstance: {fileID: 79438866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &79438869 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2521602046896487599, guid: f4fe53187dcfaec4990c18c1580128be,
+    type: 3}
+  m_PrefabInstance: {fileID: 79438866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &79438870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79438867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
+--- !u!114 &79438871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79438868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
+--- !u!114 &79438872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79438869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &104110959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1695,7 +1791,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1813769169
 Canvas:
   m_ObjectHideFlags: 0
