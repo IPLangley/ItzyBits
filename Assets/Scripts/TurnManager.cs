@@ -48,11 +48,13 @@ public class TurnManager : MonoBehaviour
 	float playerCostDifference, enemyCostDifference;
 
 	private GameObject playerCharacter;
+	public GameController cntrler;
 
 
 	private void OnEnable() {
 		actionStateDisplay.text = $"{playerName}'s turn";
 		playerCharacter = GameObject.FindGameObjectWithTag("Player");
+		cntrler = FindObjectOfType<GameController>();
 	}
 	
 	//Move selection function only usable to the player
@@ -184,13 +186,13 @@ public class TurnManager : MonoBehaviour
 
 			if(enemyHealth.value <= 0)
             {
-				Debug.Log("Player Win");
-				SceneManager.LoadScene("Overworld");
+
+				cntrler.startGame();
             }
 			if(playerHealth.value <= 0)
             {
-				Debug.Log("Enemy Win");
-				SceneManager.LoadScene("Overworld");
+
+				cntrler.gameOver();
 				playerCharacter.SetActive(true);
             }
 		}

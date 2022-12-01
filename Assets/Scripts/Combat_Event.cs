@@ -28,7 +28,7 @@ public class Combat_Event : Event
         player.Damage(5);
         player.AddMoney(15);
         SceneManager.LoadScene("Combat");
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
     }
 
 }

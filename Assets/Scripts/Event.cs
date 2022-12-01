@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Event : MonoBehaviour
 {
@@ -13,11 +14,14 @@ public class Event : MonoBehaviour
 
 
     bool eventOver = false;
+    [SerializeField]
+    Vector3 pos;
 
     // Start is called before the first frame update
     void OnEnable()
     {
         eventHandler = GetComponentInParent<Event_Handler>();
+        this.GetComponentInChildren<Button>().transform.position = eventHandler.transform.position;
     }
 
     // Update is called once per frame
@@ -25,7 +29,7 @@ public class Event : MonoBehaviour
     {
         if (eventOver)
         {
-            EventEnd();
+            Invoke("EventEnd",2f);
         }
     }
 

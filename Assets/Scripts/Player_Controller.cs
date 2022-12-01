@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -25,18 +26,24 @@ public class Player_Controller : MonoBehaviour
     public Text interactPrompt;
     public Image interactBackground;
 
+    public GameObject invUI;
 
+
+    bool invOpen;
+    bool menuOpen;
+    bool active;
     //ADD Player Stats
 
 
-
+    Scene current;
 
     // Start is called before the first frame update
     void Start()
     {
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerSpeed = 10;
-
+        invOpen = false;
+        menuOpen = false;
 
         interactPrompt.gameObject.SetActive(false);
         interactBackground.gameObject.SetActive(false);
@@ -45,6 +52,11 @@ public class Player_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        current = SceneManager.GetActiveScene();
+        if(current.name == "Overworld" && active == false)
+        {
+            gameObject.SetActive(true);
+        }
         movement();
         interact();
     }
@@ -55,6 +67,16 @@ public class Player_Controller : MonoBehaviour
         input_x = Input.GetAxisRaw("Horizontal");
         input_y = Input.GetAxisRaw("Vertical");
         playerRigidBody.velocity = new Vector2(input_x * playerSpeed, input_y * playerSpeed);
+        if ((Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Tab)) && menuOpen != true)
+        {
+            invUI.SetActive(true);
+            invOpen = true;
+        }
+        else if ((Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Tab)) && menuOpen == true)
+        {
+            invUI.SetActive(false);
+            invOpen = false;
+        }
     }
 
 
@@ -70,7 +92,8 @@ public class Player_Controller : MonoBehaviour
         }
         else if (interactPrompt.gameObject.activeInHierarchy && interactBackground.gameObject.activeInHierarchy)
         {
-
+            interactPrompt.gameObject.SetActive(true);
+            interactBackground.gameObject.SetActive(true);
         }
     }
     bool InteractInput()
@@ -96,7 +119,6 @@ public class Player_Controller : MonoBehaviour
         {
             return false;
         }
- 
     }
     
     void eventCheck()

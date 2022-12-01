@@ -13,6 +13,7 @@ public class PlayerStats : MonoBehaviour
     float maxHealth = 10;
     public Image healthUI;
 
+    public bool newgame;
 
     public float dexterity;
     float dextertyBase;
@@ -23,6 +24,8 @@ public class PlayerStats : MonoBehaviour
     public float defense;
     float defensebase;
 
+    Scene current;
+
     public enum stats{hth,dex,str,lck,def};
 
 
@@ -31,9 +34,12 @@ public class PlayerStats : MonoBehaviour
 
     public List<Item> inventory = new List<Item>();
 
+    public float storypoint;
+
 
     private void Awake()
     {
+        
         // If the instance reference has not been set, yet, 
         if (instance == null)
         {
@@ -62,7 +68,18 @@ public class PlayerStats : MonoBehaviour
     void Update()
     {
         healthUI.fillAmount = health / maxHealth;
-
+      
+        current = SceneManager.GetActiveScene();
+        if (current.name != "Overworld")
+        {
+            //this.gameObject.SetActive(false);
+            
+        }
+        else
+        {
+            this.gameObject.SetActive(true);
+          
+        }
     }
 
 
@@ -88,7 +105,7 @@ public class PlayerStats : MonoBehaviour
         health -= amt;
         if (health <= 0)
         {
-            //Die();
+            SceneManager.LoadScene("Game Lose");
         }
     }
     public void AddMoney(float amnt)
@@ -121,7 +138,6 @@ public class PlayerStats : MonoBehaviour
         {
             case stats.hth:
                 health += amnt;
-                maxHealth += amnt;
                 break;
             case stats.str:
                 strength += amnt;
@@ -150,5 +166,15 @@ public class PlayerStats : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
+    public void gameWin()
+    {
+        storypoint++;
+        if (storypoint >= 5)
+        {
+            SceneManager.LoadScene("Game Win");
+            Debug.Log("You win!");
+            //Gameover
+        }
+    }
     
 }
